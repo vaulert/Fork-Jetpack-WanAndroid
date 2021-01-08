@@ -7,7 +7,7 @@
 
     <application android:allowBackup="true">
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.main.NewMainActivity"
             android:configChanges="screenLayout|screenSize|smallestScreenSize|orientation"
             android:label="@string/app_name"
             android:theme="@style/Theme.Splash"

@@ -6,13 +6,15 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.win.ft_home.R
 import com.win.ft_home.adapter.TreeListAdapter
 import com.win.ft_home.databinding.FragmentTreeBinding
 import com.win.ft_home.model.tree.TreeData
+import com.win.lib_base.extentions.PATH_TREE_FRAGMENT
 import com.win.lib_base.base.BaseFragment
 
-
+@Route(path = PATH_TREE_FRAGMENT)
 class TreeFragment : BaseFragment<TreeViewModel, FragmentTreeBinding>() {
 
     private lateinit var mAdapter: TreeListAdapter

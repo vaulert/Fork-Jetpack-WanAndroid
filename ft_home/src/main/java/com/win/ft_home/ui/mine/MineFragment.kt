@@ -2,13 +2,15 @@ package com.win.ft_home.ui.mine
 
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.win.ft_home.R
 import com.win.ft_home.databinding.FragmentMineBinding
+import com.win.lib_base.extentions.PATH_MINE_FRAGMENT
 import com.win.lib_base.base.BaseFragment
 import com.win.lib_base.service.aboutus.wrap.AboutUsServiceImplWrap
 import com.win.lib_base.service.login.warp.LoginServiceImplWrap
-import com.win.lib_image_loader.app.ImageLoaderManager
 
+@Route(path = PATH_MINE_FRAGMENT)
 class MineFragment : BaseFragment<MineViewModel, FragmentMineBinding>() {
 
     override fun getLayoutResId(): Int = R.layout.fragment_mine

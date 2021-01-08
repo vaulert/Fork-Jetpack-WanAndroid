@@ -6,17 +6,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.google.gson.Gson
 import com.win.ft_home.R
 import com.win.ft_home.`interface`.NavigationTabItemSelectedListener
 import com.win.ft_home.adapter.NavigationTabAdapter
 import com.win.ft_home.databinding.FragmentNavigationBinding
 import com.win.ft_home.model.navigation.NavigationItem
+import com.win.lib_base.extentions.PATH_NAV_FRAGMENT
 import com.win.lib_base.base.BaseFragment
 import com.win.lib_base.service.search.wrap.SearchWrapService
 import com.win.lib_base.utils.DensityUtil
 import org.koin.android.ext.android.get
 
+@Route(path = PATH_NAV_FRAGMENT)
 class NavigationFragment : BaseFragment<NavigationViewModel, FragmentNavigationBinding>() {
 
     private val gson = get<Gson>()

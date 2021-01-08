@@ -8,13 +8,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.win.ft_home.R
 import com.win.ft_home.databinding.FragmentProjectBinding
 import com.win.ft_home.model.project.ProjectTabItem
+import com.win.lib_base.extentions.PATH_PROJECT_FRAGMENT
 import com.win.lib_base.base.BaseFragment
 
+@Route(path = PATH_PROJECT_FRAGMENT)
 class ProjectFragment : BaseFragment<ProjectViewModel, FragmentProjectBinding>() {
 
     private var mData: MutableList<ProjectTabItem>? = null

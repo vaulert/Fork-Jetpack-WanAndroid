@@ -75,6 +75,7 @@ dependencies {
     implementation rootProject.depsLibs.mmkv
 
     implementation rootProject.depsLibs.viewPager2
+    implementation rootProject.depsLibs.startup
 
 
     implementation project(":ft_home")

@@ -1,13 +1,15 @@
 package com.win.ft_home.ui.home
 
 import androidx.lifecycle.Observer
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.win.ft_home.R
 import com.win.ft_home.adapter.HomeBannerAdapter
 import com.win.ft_home.databinding.FragmentHomeBinding
 import com.win.ft_home.model.home.Banner
+import com.win.lib_base.extentions.PATH_HOME_FRAGMENT
 import com.win.lib_base.base.BaseFragment
 
-
+@Route(path = PATH_HOME_FRAGMENT)
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     override fun getLayoutResId(): Int = R.layout.fragment_home

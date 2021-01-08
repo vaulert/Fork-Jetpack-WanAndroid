@@ -48,6 +48,8 @@ ext {
             junit                : 'junit:junit:4.12',
             extJunit             : 'androidx.test.ext:junit:1.1.0',
             espressoCore         : 'androidx.test.espresso:espresso-core:3.1.1',
+//            startup              : "androidx.startup:startup-runtime:1.0.0",
+            startup              : 'com.rousetime.android:android-startup:1.0.6',
 
             //网络请求
             retrofit             : "com.squareup.retrofit2:retrofit:${depsVersion.retrofitVersion}",
@@ -90,6 +92,8 @@ ext {
             viewPager2           : "androidx.viewpager2:viewpager2:${depsVersion.viewPager2Veriosn}",
 
             kotlinReflect        : "org.jetbrains.kotlin:kotlin-reflect:${depsVersion.kotlinReflectVersion}",
+
+            pagerBottom          : "me.majiajie:pager-bottom-tab-strip:2.3.0X",
     ]
 
 }

@@ -3,6 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+kapt {
+    arguments { arg("AROUTER_MODULE_NAME", project.getName()) }
+}
+
 android {
     compileSdkVersion rootProject.android.compileSdkVersion
     buildToolsVersion rootProject.android.buildToolsVersion
@@ -39,7 +43,7 @@ dependencies {
 
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    compileOnly rootProject.depsLibs.appcompat
+    api rootProject.depsLibs.appcompat
     compileOnly rootProject.depsLibs.coreKtx
 
     implementation rootProject.depsLibs.lifecycleExt
@@ -70,6 +74,10 @@ dependencies {
     compileOnly project(":lib_common_ui")
     compileOnly project(":lib_image_loader")
 
+    implementation rootProject.depsLibs.material
+    implementation rootProject.depsLibs.pagerBottom
+    compileOnly rootProject.depsLibs.aroutreApi
+    kapt rootProject.depsLibs.arouterCompiler
 
 }
 
