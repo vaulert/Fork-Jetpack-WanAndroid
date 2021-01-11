@@ -1,6 +1,5 @@
 package com.win.lib_net.net
 
-
 import com.win.lib_net.BuildConfig
 import com.win.lib_net.interceptor.CommonInterceptor
 import okhttp3.OkHttpClient
@@ -8,7 +7,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-
 
 class RetrofitClient private constructor() {
 
@@ -18,24 +16,22 @@ class RetrofitClient private constructor() {
         val instance: RetrofitClient by lazy { RetrofitClient() }
     }
 
-
     init {
-
         retrofit = Retrofit.Builder()
             .client(initClient())
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://www.wanandroid.com")
+            .baseUrl(Host.BASE_URL)
             .build()
-
     }
 
     private fun initClient(): OkHttpClient {
-
         return OkHttpClient.Builder()
             .addInterceptor(initLogInterceptor())
             .addInterceptor(CommonInterceptor())
             .connectTimeout(10, TimeUnit.SECONDS)
             .readTimeout(10, TimeUnit.SECONDS)
+            .retryOnConnectionFailure(true)
+            .followRedirects(false)
             .build()
     }
 
@@ -49,10 +45,7 @@ class RetrofitClient private constructor() {
         return loggingInterceptor
     }
 
-
     fun <T> create(service: Class<T>): T {
         return retrofit.create(service)
     }
-
-
 }

@@ -8,8 +8,7 @@ apply plugin: 'com.alibaba.arouter'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
-
-
+    
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
@@ -26,13 +25,6 @@ android {
         }
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
     dataBinding {
         enabled = true
     }
@@ -40,31 +32,21 @@ android {
 }
 
 dependencies {
-
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     compileOnly rootProject.depsLibs.appcompat
     compileOnly rootProject.depsLibs.coreKtx
-
-
     implementation rootProject.depsLibs.lifecycleExt
     compileOnly rootProject.depsLibs.retrofit
     compileOnly rootProject.depsLibs.converterGson
-
-
     compileOnly rootProject.depsLibs.aroutreApi
     kapt rootProject.depsLibs.arouterCompiler
-
     compileOnly rootProject.depsLibs.constraintlayout
     compileOnly rootProject.depsLibs.navigationFragment
-
     implementation rootProject.depsLibs.koinScop
     implementation rootProject.depsLibs.KoinViewModel
     implementation rootProject.depsLibs.koinFragmet
-
     compileOnly rootProject.depsLibs.paging
-
     compileOnly rootProject.depsLibs.SmartRefreshLayout
     implementation rootProject.depsLibs.kotlinReflect
-
 }

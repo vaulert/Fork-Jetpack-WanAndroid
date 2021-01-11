@@ -50,7 +50,6 @@ dependencies {
     implementation rootProject.depsLibs.navigationFragmentKtx
     implementation rootProject.depsLibs.navigationUiKtx
 
-
     implementation rootProject.depsLibs.retrofit
     implementation rootProject.depsLibs.converterGson
     implementation rootProject.depsLibs.gson
@@ -77,7 +76,6 @@ dependencies {
     implementation rootProject.depsLibs.viewPager2
     implementation rootProject.depsLibs.startup
 
-
     implementation project(":ft_home")
     implementation project(":ft_tree_detail")
     implementation project(":ft_login")
@@ -87,7 +85,6 @@ dependencies {
     implementation project(":lib_base")
     implementation project(":lib_net")
     implementation project(":lib_webview")
-    implementation project(":lib_common_ui")
+    implementation project(":lib_common")
     implementation project(":lib_image_loader")
-
 }

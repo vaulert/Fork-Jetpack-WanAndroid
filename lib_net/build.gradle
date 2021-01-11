@@ -18,12 +18,14 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", "\"https://www.wanandroid.com\""
+        }
+        debug {
+            buildConfigField "String", "BASE_URL", "\"https://www.wanandroid.com\""
         }
     }
 
-    compileOptions{
+    compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -32,19 +34,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    compileOnly project(":lib_base")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
     compileOnly rootProject.depsLibs.appcompat
     compileOnly rootProject.depsLibs.coreKtx
-
     compileOnly rootProject.depsLibs.retrofit
     compileOnly rootProject.depsLibs.converterGson
     compileOnly rootProject.depsLibs.gson
     compileOnly rootProject.depsLibs.loggingInterceptor
-
     implementation rootProject.depsLibs.coroutines
-
-    compileOnly project(":lib_base")
-
 }

@@ -1,12 +1,11 @@
 package com.win.lib_net.net
 
 import com.win.lib_net.exception.DealException
-
 import com.win.lib_net.exception.ResultException
 import com.win.lib_net.model.BaseModel
+import com.win.lib_net.model.NetResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
-import com.win.lib_net.model.NetResult
 
 open class BaseRepository {
 
@@ -42,6 +41,4 @@ open class BaseRepository {
             }
         }
     }
-
-
 }

@@ -11,7 +11,7 @@ import com.win.ft_home.R
 import com.win.ft_home.databinding.TreeListItemBinding
 import com.win.ft_home.model.tree.TreeData
 import com.win.lib_base.service.treedetail.warp.TreeDetailServiceImplWarp
-import com.win.lib_common_ui.flowlayout.adapter.TagAdapter
+import com.win.lib_common.widget.flowlayout.adapter.TagAdapter
 
 /**
  * Create by liwen on 2020-05-21

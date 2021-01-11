@@ -36,7 +36,7 @@
             android:background="#dcdcdc" />
 
 
-        <com.win.lib_common_ui.flowlayout.TagFlowLayout
+        <com.win.lib_common.widget.flowlayout.TagFlowLayout
             android:id="@+id/mFlowLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

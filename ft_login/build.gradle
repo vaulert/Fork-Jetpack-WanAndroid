@@ -24,13 +24,6 @@ android {
         }
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
     dataBinding{
         enabled = true
     }
@@ -38,28 +31,20 @@ android {
 }
 
 dependencies {
-
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly project(":lib_net")
+    compileOnly project(":lib_base")
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     compileOnly rootProject.depsLibs.appcompat
     compileOnly rootProject.depsLibs.coreKtx
-
     compileOnly rootProject.depsLibs.lifecycleViewmodelKtx
-
     compileOnly rootProject.depsLibs.material
     compileOnly rootProject.depsLibs.constraintlayout
-
     implementation rootProject.depsLibs.koinScop
     implementation rootProject.depsLibs.KoinViewModel
     implementation rootProject.depsLibs.koinFragmet
-
     compileOnly rootProject.depsLibs.retrofit
-
     compileOnly rootProject.depsLibs.mmkv
-
     compileOnly rootProject.depsLibs.aroutreApi
     kapt rootProject.depsLibs.arouterCompiler
-
-    compileOnly project(":lib_net")
-    compileOnly project(":lib_base")
 }
