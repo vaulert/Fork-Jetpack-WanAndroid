@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.win.ft_home.model.home.Banner
-import com.win.lib_image_loader.app.ImageLoaderManager
+import com.win.lib_common.widget.image_loader.app.ImageLoaderManager
 import com.youth.banner.adapter.BannerAdapter
 
 class HomeBannerAdapter(mDatas: List<Banner>)//设置数据，也可以调用banner提供的方法,或者自己在adapter中实现

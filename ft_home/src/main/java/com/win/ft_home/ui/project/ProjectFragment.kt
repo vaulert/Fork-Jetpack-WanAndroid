@@ -15,7 +15,7 @@ import com.win.ft_home.R
 import com.win.ft_home.databinding.FragmentProjectBinding
 import com.win.ft_home.model.project.ProjectTabItem
 import com.win.lib_base.extentions.PATH_PROJECT_FRAGMENT
-import com.win.lib_base.base.BaseFragment
+import com.win.lib_base.view.fragment.BaseFragment
 
 @Route(path = PATH_PROJECT_FRAGMENT)
 class ProjectFragment : BaseFragment<ProjectViewModel, FragmentProjectBinding>() {
@@ -35,7 +35,6 @@ class ProjectFragment : BaseFragment<ProjectViewModel, FragmentProjectBinding>()
     }
 
     override fun initView() {
-
         mViewPager = mViewBinding.viewPager
         mTabLayout = mViewBinding.tabLayout
 
@@ -55,9 +54,7 @@ class ProjectFragment : BaseFragment<ProjectViewModel, FragmentProjectBinding>()
                 customView.textSize = 16f
                 customView.typeface = Typeface.DEFAULT_BOLD
             }
-
         })
-
 
         mViewPager.offscreenPageLimit = ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT
 
@@ -73,7 +70,6 @@ class ProjectFragment : BaseFragment<ProjectViewModel, FragmentProjectBinding>()
                 val item = mData!![position]
                 return createItemFragment(item.id)
             }
-
         }
 
         mediator = TabLayoutMediator(
@@ -85,7 +81,6 @@ class ProjectFragment : BaseFragment<ProjectViewModel, FragmentProjectBinding>()
             })
 
         mediator.attach()
-
     }
 
     private fun createItemFragment(id: Int): Fragment {
@@ -93,7 +88,6 @@ class ProjectFragment : BaseFragment<ProjectViewModel, FragmentProjectBinding>()
     }
 
     private fun createTabView(position: Int): View {
-
         if (mData != null && mData!!.size > 0) {
             val item = mData!![position]
             val textView = TextView(requireContext())
@@ -112,14 +106,11 @@ class ProjectFragment : BaseFragment<ProjectViewModel, FragmentProjectBinding>()
             textView.text = Html.fromHtml(item.name)
             return textView
         }
-
         return TextView(requireContext())
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         mediator.detach()
     }
-
 }

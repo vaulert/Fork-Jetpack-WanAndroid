@@ -1,0 +1,9 @@
+Fork 后改变
+
+1. MainActivity调整,替换原先的Navigation
+2. 添加AppStartup, 优化APP启动
+3. 调整lib_common模块, 抽取公共
+4. 优化gradle
+5. 添加BaseViewModel,优化ViewModel
+6. Paging2替换Paging3
+7. 移除buildSrc模块,移除lib_image_loader合并到lib_common中

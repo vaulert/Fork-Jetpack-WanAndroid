@@ -6,14 +6,15 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.win.ft_home.R
 import com.win.ft_home.databinding.ActivityMainNewBinding
-import com.win.lib_base.base.BaseActivity
+import com.win.lib_base.view.activity.BaseActivity
 import com.win.lib_base.extentions.*
+import com.win.lib_base.viewModel.EmptyViewModel
 import me.majiajie.pagerbottomtabstrip.NavigationController
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem
 import me.majiajie.pagerbottomtabstrip.item.NormalItemView
 import java.util.*
 
-class NewMainActivity : BaseActivity<MainViewModel, ActivityMainNewBinding>() {
+class NewMainActivity : BaseActivity<EmptyViewModel, ActivityMainNewBinding>() {
 
     private var pressTime: Long = 0
     private var defaultPage = 0

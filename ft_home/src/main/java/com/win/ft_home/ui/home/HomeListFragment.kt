@@ -1,20 +1,18 @@
 package com.win.ft_home.ui.home
 
-import android.util.Log
 import androidx.paging.PageKeyedDataSource
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.win.ft_home.adapter.HomeListAdapter
-import com.win.lib_base.base.AbsListFragment
 import com.win.lib_base.datasource.MutablePageKeyedDataSource
 import com.win.lib_base.model.DatasBean
+import com.win.lib_base.view.fragment.AbsListFragment
 
 /**
  * Create by liwen on 2020/6/4
  */
 class HomeListFragment : AbsListFragment<DatasBean, HomeListViewModel>() {
-
 
     override fun onCreateViewAfter() {
         super.onCreateViewAfter()
@@ -28,7 +26,6 @@ class HomeListFragment : AbsListFragment<DatasBean, HomeListViewModel>() {
     override fun onRefresh(refreshLayout: RefreshLayout) {
         mViewModel.getDataSource()!!.invalidate()
         finishRefresh()
-
     }
 
     override fun onLoadMore(refreshLayout: RefreshLayout) {

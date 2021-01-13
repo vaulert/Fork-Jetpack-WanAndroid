@@ -1,13 +1,10 @@
 package com.win.ft_search.ui.activity
 
 import android.content.Context
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.text.TextUtils
-import android.util.Log
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -16,7 +13,7 @@ import com.win.ft_search.databinding.ActivitySearchBinding
 import com.win.ft_search.ui.fragment.HotKeyFragment
 import com.win.ft_search.ui.fragment.SearchResultFragment
 import com.win.ft_search.ui.viewmodel.SearchViewModel
-import com.win.lib_base.base.BaseActivity
+import com.win.lib_base.view.activity.BaseActivity
 import com.win.lib_base.utils.KeyBoardUtils
 
 /**

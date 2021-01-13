@@ -1,14 +1,13 @@
 package com.win.ft_search.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.paging.PageKeyedDataSource
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.win.ft_search.adapter.SearchResultAdapter
 import com.win.ft_search.ui.viewmodel.SearchResultViewModel
-import com.win.lib_base.base.AbsListFragment
+import com.win.lib_base.view.fragment.AbsListFragment
 import com.win.lib_base.datasource.MutablePageKeyedDataSource
 import com.win.lib_base.model.DatasBean
 

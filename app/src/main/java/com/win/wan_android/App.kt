@@ -14,6 +14,6 @@ class App : Application() {
     }
 
     private fun initContext() {
-        BaseContext.instance.init(this)
+        BaseContext.init(this)
     }
 }

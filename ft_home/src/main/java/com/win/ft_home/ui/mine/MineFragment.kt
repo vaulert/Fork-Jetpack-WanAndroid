@@ -5,13 +5,14 @@ import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.win.ft_home.R
 import com.win.ft_home.databinding.FragmentMineBinding
+import com.win.lib_base.view.fragment.BaseFragment
+import com.win.lib_base.viewModel.EmptyViewModel
 import com.win.lib_base.extentions.PATH_MINE_FRAGMENT
-import com.win.lib_base.base.BaseFragment
 import com.win.lib_base.service.aboutus.wrap.AboutUsServiceImplWrap
 import com.win.lib_base.service.login.warp.LoginServiceImplWrap
 
 @Route(path = PATH_MINE_FRAGMENT)
-class MineFragment : BaseFragment<MineViewModel, FragmentMineBinding>() {
+class MineFragment : BaseFragment<EmptyViewModel, FragmentMineBinding>() {
 
     override fun getLayoutResId(): Int = R.layout.fragment_mine
 

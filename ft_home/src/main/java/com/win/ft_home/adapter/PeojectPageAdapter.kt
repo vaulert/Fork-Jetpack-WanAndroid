@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.win.ft_home.databinding.NavigationPageLayoutBinding
 import com.win.ft_home.model.project.ProjectItemSub
-import com.win.lib_image_loader.app.ImageLoaderManager
+import com.win.lib_common.widget.image_loader.app.ImageLoaderManager
 
 /**
  * Create by liwen on 2020/5/26

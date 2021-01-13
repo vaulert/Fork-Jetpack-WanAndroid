@@ -1,18 +1,15 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.alibaba.arouter'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion rootProject.android.compileSdkVersion
+    buildToolsVersion rootProject.android.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.android.minSdkVersion
+        targetSdkVersion rootProject.android.targetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -24,15 +21,16 @@ android {
         }
     }
 
-    dataBinding {
-        enabled true
+    buildFeatures { dataBinding = true }
+    kotlinOptions { jvmTarget = "1.8" }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
     compileOnly project(":lib_base")
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compileOnly rootProject.depsLibs.coreKtx
     compileOnly rootProject.depsLibs.appcompat
     implementation rootProject.depsLibs.lifecycleExt
@@ -42,4 +40,8 @@ dependencies {
     implementation rootProject.depsLibs.koinScop
     implementation rootProject.depsLibs.KoinViewModel
     implementation rootProject.depsLibs.koinFragmet
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

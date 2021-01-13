@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 kapt {
@@ -14,30 +13,24 @@ android {
     defaultConfig {
         minSdkVersion rootProject.android.minSdkVersion
         targetSdkVersion rootProject.android.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
+    buildFeatures { dataBinding = true }
+    kotlinOptions { jvmTarget = "1.8" }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
-
-    dataBinding {
-        enabled true
-    }
-
 }
 
 dependencies {
-    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
     compileOnly project(":lib_net")
     compileOnly project(":lib_base")
     compileOnly project(":lib_common")
-    compileOnly project(":lib_image_loader")
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
     api rootProject.depsLibs.appcompat
     compileOnly rootProject.depsLibs.coreKtx
     implementation rootProject.depsLibs.lifecycleExt
@@ -62,5 +55,9 @@ dependencies {
     implementation rootProject.depsLibs.pagerBottom
     compileOnly rootProject.depsLibs.aroutreApi
     kapt rootProject.depsLibs.arouterCompiler
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
 

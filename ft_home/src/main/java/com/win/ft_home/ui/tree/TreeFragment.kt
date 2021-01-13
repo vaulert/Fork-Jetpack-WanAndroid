@@ -12,20 +12,17 @@ import com.win.ft_home.adapter.TreeListAdapter
 import com.win.ft_home.databinding.FragmentTreeBinding
 import com.win.ft_home.model.tree.TreeData
 import com.win.lib_base.extentions.PATH_TREE_FRAGMENT
-import com.win.lib_base.base.BaseFragment
+import com.win.lib_base.view.fragment.BaseFragment
 
 @Route(path = PATH_TREE_FRAGMENT)
 class TreeFragment : BaseFragment<TreeViewModel, FragmentTreeBinding>() {
 
     private lateinit var mAdapter: TreeListAdapter
-
     private lateinit var mRecyclerView: RecyclerView
 
     override fun getLayoutResId(): Int = R.layout.fragment_tree
 
-
     override fun initData() {
-
         mViewModel.getTreeList()
 
         //请求数据
@@ -33,24 +30,21 @@ class TreeFragment : BaseFragment<TreeViewModel, FragmentTreeBinding>() {
             mAdapter = TreeListAdapter(requireActivity(), it)
             mRecyclerView.adapter = mAdapter
         })
-
     }
 
     override fun initView() {
-
         mRecyclerView = mViewBinding.recyclerView
         mRecyclerView.layoutManager = LinearLayoutManager(
-            activity
-            , LinearLayoutManager.VERTICAL, false
-
+            activity, LinearLayoutManager.VERTICAL, false
         )
 
         val decoration = DividerItemDecoration(activity, VERTICAL)
-        decoration.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.home_list_divider)!!)
-
+        decoration.setDrawable(
+            ContextCompat.getDrawable(
+                requireContext(),
+                R.drawable.home_list_divider
+            )!!
+        )
         mRecyclerView.addItemDecoration(decoration)
-
     }
-
-
 }

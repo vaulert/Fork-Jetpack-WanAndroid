@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import com.win.lib_common.widget.flowlayout.adapter.TagAdapter
-import com.win.lib_common.widget.flowlayout.`interface`.NotifyDataSetChangedListener
 
 /**
  * Create by liwen on 2020-05-21
@@ -18,53 +17,35 @@ class TagFlowLayout @JvmOverloads constructor(
     NotifyDataSetChangedListener {
 
     private var maxSelectedCount: Int = 1
-
-
-
     private lateinit var mAdapter: TagAdapter
 
     fun setMaxSelectedCount(count: Int) {
         maxSelectedCount = count
     }
 
-
     fun setAdapter(adapter: TagAdapter) {
-
         mAdapter = adapter
-
         mAdapter.setNotifyDataSetChangedListener(this)
-
         onDataChanged()
-
     }
 
-
     override fun onDataChanged() {
-
         removeAllViews()
-
         val tagAdapter = mAdapter
-
         for (i in 0 until tagAdapter.getItemCount()) {
             val view = tagAdapter.createView(LayoutInflater.from(context), this, i)
             tagAdapter.bindView(view, i)
-
             addView(view)
-
             bindViewMethod(view, i)
         }
     }
 
     private fun bindViewMethod(view: View, position: Int) {
-
         view.setOnClickListener {
-
             mAdapter.onItemViewClick(view, position)
-
             if (maxSelectedCount <= 0) {
                 return@setOnClickListener
             }
-
             //没有被选中
             if (!view.isSelected) {
                 if (getSelectedViewCount() >= maxSelectedCount) {
@@ -80,14 +61,11 @@ class TagFlowLayout @JvmOverloads constructor(
                     }
                 }
             }
-
             view.isSelected = !view.isSelected
-
         }
     }
 
     fun getSelectedViewIndex(): MutableList<Int> {
-
         val list = mutableListOf<Int>()
         val itemCount = mAdapter.getItemCount()
         for (i in 0 until itemCount) {
@@ -96,7 +74,6 @@ class TagFlowLayout @JvmOverloads constructor(
                 list.add(i)
             }
         }
-
         return list
     }
 
@@ -108,12 +85,10 @@ class TagFlowLayout @JvmOverloads constructor(
                 return view
             }
         }
-
         return null
     }
 
     private fun getSelectedViewCount(): Int {
-
         val itemCount = mAdapter.getItemCount()
         var count = 0
         for (i in 0 until itemCount) {
@@ -122,9 +97,6 @@ class TagFlowLayout @JvmOverloads constructor(
                 count++
             }
         }
-
         return count
     }
-
-
 }

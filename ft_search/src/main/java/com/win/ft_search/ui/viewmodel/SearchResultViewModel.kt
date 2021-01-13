@@ -1,12 +1,11 @@
 package com.win.ft_search.ui.viewmodel
 
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.viewModelScope
 import androidx.paging.DataSource
 import androidx.paging.PageKeyedDataSource
 import com.win.ft_search.ui.repository.SearchRepository
-import com.win.lib_base.base.AbsListViewModel
+import com.win.lib_base.viewModel.AbsListViewModel
 import com.win.lib_base.model.DatasBean
 import com.win.lib_base.utils.BaseContext
 import com.win.lib_net.model.NetResult
@@ -68,7 +67,7 @@ class SearchResultViewModel(private val repo: SearchRepository) :
                 callback.onResult(search.data.datas, null, 1)
             } else if (search is NetResult.Error) {
                 Toast.makeText(
-                    BaseContext.instance.getContext(),
+                    BaseContext.getContext(),
                     search.exception.msg,
                     Toast.LENGTH_LONG
                 ).show()
@@ -89,7 +88,7 @@ class SearchResultViewModel(private val repo: SearchRepository) :
                 callback.onResult(search.data.datas, key + 1)
             } else if (search is NetResult.Error) {
                 Toast.makeText(
-                    BaseContext.instance.getContext(),
+                    BaseContext.getContext(),
                     search.exception.msg,
                     Toast.LENGTH_LONG
                 ).show()

@@ -5,8 +5,7 @@ import android.content.Context
 /**
  * Create by liwen on 2020/6/4
  */
-class BaseContext private constructor() {
-
+object BaseContext {
 
     private lateinit var mContext: Context
 
@@ -17,15 +16,4 @@ class BaseContext private constructor() {
     fun getContext(): Context {
         return mContext
     }
-
-    companion object {
-
-        val instance = Singleton.holder
-
-        object Singleton {
-            val holder = BaseContext()
-        }
-
-    }
-
 }

@@ -3,7 +3,7 @@ package com.win.lib_base.service.search.wrap
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.launcher.ARouter
-import com.win.lib_base.service.ConstantsPath
+import com.win.lib_base.extentions.SEARCH_SERVICE_PATH
 import com.win.lib_base.service.search.SearchService
 
 /**
@@ -11,7 +11,7 @@ import com.win.lib_base.service.search.SearchService
  */
 class SearchWrapService private constructor() {
 
-    @Autowired(name = ConstantsPath.SEARCH_SERVICE_PATH)
+    @Autowired(name = SEARCH_SERVICE_PATH)
     lateinit var service: SearchService
 
     init {
@@ -22,16 +22,11 @@ class SearchWrapService private constructor() {
         service.start(context)
     }
 
-
     companion object {
-
         val instance = Singleton.holder
 
         object Singleton {
             val holder = SearchWrapService()
         }
-
     }
-
-
 }

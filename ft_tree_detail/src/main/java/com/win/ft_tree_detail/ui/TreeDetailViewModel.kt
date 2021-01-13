@@ -1,18 +1,14 @@
 package com.win.ft_tree_detail.ui
 
-//import com.win.lib_base.App
 import android.widget.Toast
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.DataSource
 import androidx.paging.PageKeyedDataSource
-import com.win.ft_tree_detail.model.TreeDetailItem
-import com.win.lib_base.base.AbsListViewModel
 import com.win.lib_base.model.DatasBean
 import com.win.lib_base.utils.BaseContext
+import com.win.lib_base.viewModel.AbsListViewModel
 import com.win.lib_net.model.NetResult
 import kotlinx.coroutines.launch
-import org.koin.core.KoinComponent
 import java.util.*
 
 /**
@@ -64,7 +60,7 @@ class TreeDetailViewModel(private val dataRepos: TreeDetailRepository) :
                 callback.onResult(result.data.datas, null, 1)
             } else if (result is NetResult.Error) {
                 Toast.makeText(
-                    BaseContext.instance.getContext(),
+                    BaseContext.getContext(),
                     result.exception.msg,
                     Toast.LENGTH_LONG
                 ).show()
@@ -83,7 +79,7 @@ class TreeDetailViewModel(private val dataRepos: TreeDetailRepository) :
                 callback.onResult(result.data.datas, key + 1)
             } else if (result is NetResult.Error) {
                 Toast.makeText(
-                    BaseContext.instance.getContext(),
+                    BaseContext.getContext(),
                     result.exception.msg,
                     Toast.LENGTH_LONG
                 ).show()

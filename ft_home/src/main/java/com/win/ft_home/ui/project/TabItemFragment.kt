@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.win.ft_home.adapter.PeojectPageAdapter
 import com.win.ft_home.model.project.ProjectItemSub
-import com.win.lib_base.base.AbsListFragment
+import com.win.lib_base.view.fragment.AbsListFragment
 import com.win.lib_base.datasource.MutablePageKeyedDataSource
 
 /**

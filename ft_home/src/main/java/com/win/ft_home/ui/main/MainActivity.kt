@@ -9,10 +9,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.win.ft_home.R
 import com.win.ft_home.databinding.ActivityMainBinding
-import com.win.lib_base.base.BaseActivity
-import com.win.lib_base.base.FixFragmentNavigator
+import com.win.lib_base.view.activity.BaseActivity
+import com.win.lib_base.view.fragment.FixFragmentNavigator
+import com.win.lib_base.viewModel.EmptyViewModel
 
-class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
+class MainActivity : BaseActivity<EmptyViewModel, ActivityMainBinding>() {
 
     private lateinit var navView: BottomNavigationView
     private lateinit var navController: NavController

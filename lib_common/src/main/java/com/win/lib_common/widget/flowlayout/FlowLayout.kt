@@ -17,9 +17,7 @@ open class FlowLayout @JvmOverloads constructor(
 ) :
     ViewGroup(context, attributeSet, defStyle) {
 
-
     private val mAllViews = mutableListOf<MutableList<View>>()
-
     private val mLineHeight = mutableListOf<Int>()
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -28,31 +26,22 @@ open class FlowLayout @JvmOverloads constructor(
         mLineHeight.clear()
 
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)
-
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         val heightSize = MeasureSpec.getSize(heightMeasureSpec)
 
         var linesWidth = 0
         var linesHeight = 0 //每行最高的childview
-
         var maxHeight = 0 // 各行累加的height
-
         val childCount = childCount
-
         var curViewList = mutableListOf<View>()
 
         for (i in 0 until childCount) {
-
             val child = getChildAt(i)
-
             if (child.visibility == View.GONE) {
                 continue
             }
-
             measureChild(child, widthMeasureSpec, heightMeasureSpec)
-
             val lp = child.layoutParams as MarginLayoutParams
-
             val cWidth = child.measuredWidth + lp.leftMargin + lp.rightMargin
             val cHeight = child.measuredHeight + lp.topMargin + lp.bottomMargin
 
@@ -60,11 +49,9 @@ open class FlowLayout @JvmOverloads constructor(
                 //换行
                 maxHeight += linesHeight
                 mLineHeight.add(linesHeight)
-
                 mAllViews.add(curViewList)
                 curViewList = mutableListOf()
                 curViewList.add(child)
-
                 linesWidth = cWidth
                 linesHeight = cHeight
 
@@ -72,9 +59,7 @@ open class FlowLayout @JvmOverloads constructor(
                 //未换行
                 linesWidth += cWidth
                 linesHeight = linesHeight.coerceAtLeast(cHeight)
-
                 curViewList.add(child)
-
             }
 
             if (i == childCount - 1) {
@@ -93,15 +78,11 @@ open class FlowLayout @JvmOverloads constructor(
             maxHeight += paddingBottom + paddingTop
         }
         setMeasuredDimension(widthSize, maxHeight)
-
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-
-
         var left = paddingLeft
         var top = paddingTop
-
         val size = mAllViews.size
 
         for (i in 0 until size) {
@@ -119,19 +100,15 @@ open class FlowLayout @JvmOverloads constructor(
                 val rc = lc + childView.measuredWidth
                 val bc = tc + childView.measuredHeight
 
-
                 childView.layout(lc, tc, rc, bc)
 
                 left += childView.measuredWidth + lp.leftMargin + lp.rightMargin
 
             }
-
             left = paddingLeft
             top += lineHeight
-
         }
     }
-
 
     //child没有设置LayoutParams  给默认的  一般是new的时候调用
     override fun generateDefaultLayoutParams(): LayoutParams {
@@ -152,5 +129,4 @@ open class FlowLayout @JvmOverloads constructor(
     override fun checkLayoutParams(p: LayoutParams?): Boolean {
         return p is MarginLayoutParams
     }
-
 }

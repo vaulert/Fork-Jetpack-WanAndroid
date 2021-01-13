@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.win.lib_common.widget.flowlayout.`interface`.NotifyDataSetChangedListener
+import com.win.lib_common.widget.flowlayout.NotifyDataSetChangedListener
 
 /**
  * Create by liwen on 2020-05-21

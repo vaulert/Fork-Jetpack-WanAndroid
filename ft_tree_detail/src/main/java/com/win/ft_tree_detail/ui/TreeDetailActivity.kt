@@ -3,21 +3,14 @@ package com.win.ft_tree_detail.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.lifecycle.Observer
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.facade.annotation.Autowired
-import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.win.ft_tree_detail.adapter.TreeDetailListAdapter
-import com.win.ft_tree_detail.model.TreeDetailItem
-import com.win.lib_base.base.AbsListActivity
+import com.win.lib_base.view.activity.AbsListActivity
 import com.win.lib_base.model.DatasBean
-import org.koin.android.ext.android.get
-import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TreeDetailActivity : AbsListActivity<DatasBean, TreeDetailViewModel>() {
 

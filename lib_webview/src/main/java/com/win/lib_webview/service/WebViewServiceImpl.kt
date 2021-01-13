@@ -2,14 +2,14 @@ package com.win.lib_webview.service
 
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.win.lib_base.service.ConstantsPath
+import com.win.lib_base.extentions.WEB_VIEW_SERVICE_PATH
 import com.win.lib_base.service.webview.WebViewService
 import com.win.lib_webview.WebViewActivity
 
 /**
  * Create by liwen on 2020/5/26
  */
-@Route(path = ConstantsPath.WEB_VIEW_SERVICE_PATH)
+@Route(path = WEB_VIEW_SERVICE_PATH)
 class WebViewServiceImpl : WebViewService {
 
     override fun start(context: Context, title: String, url: String) {
@@ -19,5 +19,4 @@ class WebViewServiceImpl : WebViewService {
     override fun init(context: Context?) {
 
     }
-
 }

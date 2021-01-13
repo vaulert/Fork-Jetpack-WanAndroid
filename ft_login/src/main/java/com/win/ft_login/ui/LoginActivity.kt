@@ -1,14 +1,12 @@
 package com.win.ft_login.ui
 
-import android.content.Context
-import android.content.Intent
 import androidx.lifecycle.Observer
 import com.win.ft_login.R
 import com.win.ft_login.UserManager
 import com.win.ft_login.databinding.ActivityLoginBinding
 import com.win.ft_login.model.LoginLayoutBean
+import com.win.lib_base.view.activity.BaseActivity
 import com.win.lib_base.model.User
-import com.win.lib_base.base.BaseActivity
 
 /**
  * Create by liwen on 2020/5/27
@@ -25,25 +23,20 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
     }
 
     override fun initView() {
-
         mViewBinding.close.setOnClickListener {
             finish()
         }
-
         mViewBinding.featureName.setOnClickListener {
             mData.isLogin = !mData.isLogin
             initEditText()
         }
-
         mViewBinding.btnLogin.setOnClickListener {
-
             if (mData.isLogin) { //登录
                 loginAction()
             } else { //注册
                 registerAction()
             }
         }
-
     }
 
     private fun loginAction() {
@@ -81,6 +74,4 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
         mViewBinding.password.text = null
         mViewBinding.surePassword.text = null
     }
-
-
 }

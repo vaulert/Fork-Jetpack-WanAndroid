@@ -1,24 +1,26 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.alibaba.arouter'
 
 android {
     compileSdkVersion rootProject.android.compileSdkVersion
     buildToolsVersion rootProject.android.buildToolsVersion
+
     defaultConfig {
         applicationId rootProject.android.applicationId
         minSdkVersion rootProject.android.minSdkVersion
         targetSdkVersion rootProject.android.targetSdkVersion
         versionCode rootProject.android.versionCode
         versionName rootProject.android.versionName
+
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,20 +28,26 @@ android {
         }
     }
 
+    buildFeatures { dataBinding = true }
+    kotlinOptions { jvmTarget = "1.8" }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
-
-    dataBinding {
-        enabled = true
-    }
-
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation project(":ft_home")
+    implementation project(":ft_tree_detail")
+    implementation project(":ft_login")
+    implementation project(":ft_search")
+    implementation project(":ft_about_us")
+
+    implementation project(":lib_base")
+    implementation project(":lib_net")
+    implementation project(":lib_webview")
+    implementation project(":lib_common")
+
     implementation rootProject.depsLibs.appcompat
     implementation rootProject.depsLibs.coreKtx
     implementation rootProject.depsLibs.material
@@ -56,7 +64,7 @@ dependencies {
     implementation rootProject.depsLibs.loggingInterceptor
 
     implementation rootProject.depsLibs.coroutines
-    implementation rootProject.depsLibs.paging
+//    implementation rootProject.depsLibs.paging
 
     implementation rootProject.depsLibs.lifecycleViewmodelKtx
     implementation rootProject.depsLibs.glide
@@ -76,15 +84,7 @@ dependencies {
     implementation rootProject.depsLibs.viewPager2
     implementation rootProject.depsLibs.startup
 
-    implementation project(":ft_home")
-    implementation project(":ft_tree_detail")
-    implementation project(":ft_login")
-    implementation project(":ft_search")
-    implementation project(":ft_about_us")
-
-    implementation project(":lib_base")
-    implementation project(":lib_net")
-    implementation project(":lib_webview")
-    implementation project(":lib_common")
-    implementation project(":lib_image_loader")
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

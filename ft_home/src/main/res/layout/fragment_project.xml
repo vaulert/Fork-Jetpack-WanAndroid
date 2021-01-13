@@ -16,22 +16,24 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            app:tabBackground="@android:color/white"
             app:tabGravity="center"
-            app:tabIndicatorFullWidth="false"
             app:tabIndicatorColor="@color/tab_indicator_color"
+            app:tabIndicatorFullWidth="false"
             app:tabIndicatorHeight="2dp"
             app:tabInlineLabel="true"
             app:tabMode="scrollable"
-            app:tabUnboundedRipple="true" />
+            app:tabRippleColor="@android:color/transparent"
+            app:tabUnboundedRipple="false" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal" />
+            android:orientation="horizontal"
+            android:overScrollMode="never" />
 
     </LinearLayout>
-
 
 </layout>

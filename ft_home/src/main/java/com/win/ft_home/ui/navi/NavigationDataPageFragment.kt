@@ -1,7 +1,6 @@
 package com.win.ft_home.ui.navi
 
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -9,16 +8,17 @@ import com.win.ft_home.R
 import com.win.ft_home.adapter.NavigationTabPageAdapter
 import com.win.ft_home.databinding.NavigationDataPageBinding
 import com.win.ft_home.model.navigation.NavigationItemDetail
-import com.win.lib_base.adapter.BaseRecyclerViewAdapter
-import com.win.lib_base.base.BaseFragment
 import com.win.lib_base.service.webview.warp.WebViewWarpService
+import com.win.lib_base.view.adapter.BaseRecyclerViewAdapter
+import com.win.lib_base.view.fragment.BaseFragment
+import com.win.lib_base.viewModel.EmptyViewModel
 import org.koin.android.ext.android.get
 
 /**
  * Create by liwen on 2020/5/30
  */
 class NavigationDataPageFragment :
-    BaseFragment<NavigationDataPageViewModel, NavigationDataPageBinding>() {
+    BaseFragment<EmptyViewModel, NavigationDataPageBinding>() {
 
     private var detailList: MutableList<NavigationItemDetail>? = null
 
@@ -43,7 +43,6 @@ class NavigationDataPageFragment :
     override fun initData() {
         val arguments = requireArguments()
         val data = arguments.getString("data")
-
         detailList = gson.fromJson<MutableList<NavigationItemDetail>>(
             data,
             object : TypeToken<MutableList<NavigationItemDetail>>() {}.type
@@ -51,7 +50,6 @@ class NavigationDataPageFragment :
     }
 
     override fun initView() {
-
         mViewBinding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         val adapter = NavigationTabPageAdapter(requireContext())
         adapter.dataList = detailList!!
@@ -62,9 +60,6 @@ class NavigationDataPageFragment :
             override fun onItemClick(item: NavigationItemDetail, position: Int) {
                 WebViewWarpService.instance.start(requireContext(), item.title, item.link)
             }
-
         })
     }
-
-
 }
